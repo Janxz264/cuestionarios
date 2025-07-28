@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+<script src="../CSS/jquery/jquery-latest.js"></script>
+<script src="../CSS/jquery/jquery.mobile-1.4.5.min.js"></script>
+<link rel="stylesheet" href="../CSS/jquery/Jan.css" />
+<link rel="stylesheet" href="../CSS/jquery/Jan.min.css" />
+<link  rel="stylesheet" href="../CSS/jquery/jquery.mobile-1.4.5.min.css" />
+<script type="text/javascript" src="../JS/main.js"></script>
+<script type="text/javascript">
+function recargar()
+{
+  window.location.reload();
+}</script>
+</head>
+<body>
+<div data-role="page" id="pageone" data-theme='c'>
+  <div data-role="header">
+    <h1 id="bannernombre"></h1>
+    <a href="#myPanel" data-icon="gear" class="ui-btn-right" style="height: 40%"></a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <button class="show-page-loading-msg" data-textonly="false" data-textvisible="true" data-msgtext="Cargando..." data-inline="true" id="agregarcuestionario" data-role="button" data-icon="plus" style="width: 100%">Crear Cuestionario</button>
+    <br></br>
+    <button class="show-page-loading-msg" data-textonly="false" data-textvisible="true" data-msgtext="Cargando..." data-inline="true" id="vercuestionarios" data-role="button" data-icon="bars" style="width: 100%">Ver cuestionarios</button>
+    <br></br>
+  </div>
+
+  <div data-role="footer" data-theme="c" data-position="fixed" style="text-align: center">
+  <a href="#" data-icon="refresh" onclick="recargar();">Recargar</a>
+  <a href="#acercade" data-icon="info">Acerca de</a>
+  </div>
+  <div data-role="panel" id="myPanel" data-display="overlay" data-position="right" style="background:#bdbdbd">
+  <h2>Panel de control</h2>
+  <a href="#contra" data-transition="pop" data-role="button" data-rel="dialog" data-icon="recycle" style="background-color: #e5cd1b">Cambio de contraseña</a>
+  <a href="#cerrarsesion" data-transition="pop" data-role="button" data-icon="lock" style="background-color: #e51b1b">Cerrar sesión</a>
+</div>
+</div>
+<section id="acercade" data-role="dialog" data-theme="c">
+        <header data-role="header">
+            <h1>Acerca de</h1>
+        </header>
+        <article data-role="content">
+            <p>Aplicación web para vacante en el ISSET</p>
+            <p>Realizada por Jan Edward López Dobrusin.</p>
+            <img src="../MEDIA/jan.jpg" style="width: 100%">
+            <p>2022 Ⓒ Todos los derechos reservados.</p>
+            <a href="tel:9931995034" data-role="button" data-icon="phone" class="phone-number" style="background-color: green">9931995034</a>
+        </article>
+    </section>
+
+    <section id="pageRegistraCuestionario" data-role="dialog" data-theme="c">
+        <header data-role="header">
+            <h1>Registro de cuestionario</h1>
+        </header>
+        <article data-role="content">
+<span>Nombre del cuestionario:</span>
+<span><input type="text" name="cuestionario" id="cuestionario"/></span>
+<a id="registracuestionario" data-role="button" data-icon="check" style="background-color: #10c92f">Crear cuestionario</a>
+<a data-role="button" data-icon="delete" data-rel="back" style="background-color: #c91010">Cerrar ventana</a>
+        </article>
+    </section>
+    <section id="pageRegistraPregunta" data-role="dialog" data-theme="c">
+        <header data-role="header">
+            <h1>Registro de pregunta</h1>
+        </header>
+        <article data-role="content">
+<span>Pregunta:</span>
+<span><input type="text" name="pregunta" id="pregunta"/></span>
+<span><h1>Escriba las posibles respuestas:</h1></span>
+            <span>Respuesta 1:</span>
+            <span><input type="text" name="respuesta1" id="respuesta1"/></span>
+            <span>Respuesta 2:</span>
+            <span><input type="text" name="respuesta2" id="respuesta2"/></span>
+            <span>Respuesta 3:</span>
+            <span><input type="text" name="respuesta3" id="respuesta3"/></span>
+            <span>Respuesta 4:</span>
+            <span><input type="text" name="respuesta4" id="respuesta4"/></span>
+            <span>Elija la respuesta correcta:</span>
+<select id="respuestacorrecta">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+</select>
+<a id="registrapregunta" data-role="button" data-icon="check" style="background-color: #10adc9">Siguiente pregunta</a>
+<a id="terminacuestionario" data-role="button" data-icon="check" style="background-color: #c9b310">Terminar cuestionario</a>
+        </article>
+    </section>
+    <section id="pageRegistraRespuesta" data-role="dialog" data-theme="c">
+        <header data-role="header">
+            
+<a id="registrarespuesta" data-role="button" data-icon="edit">Registrar respuesta</a>
+        </header>
+  </ul>
+    <a data-role="button" data-rel="back" style="background-color: #c91010">Cerrar</a> 
+    </section>
+    <section id="pageConsultaCuestionarios" data-role="dialog" data-theme="c">
+        <header data-role="header">
+            <h1>Cuestionarios</h1>
+        </header>
+        <ul data-role="listview" data-filter="true" id="consultadecuestionarios">
+  </ul>
+    <a data-role="button" data-rel="back" style="background-color: #c91010">Cerrar</a> 
+    </section>
+    <section id="pageLlenar" data-role="dialog" data-theme="c">
+        <header data-role="header">
+            <h1>Error</h1>
+        </header>
+        <article data-role="content">
+            <p>Rellene todos los campos</p>
+            <a href="#" data-role="button" data-rel="back">Aceptar</a>
+        </article>
+    </section>
+    <section id="pageExito" data-role="dialog" data-theme="c">
+        <header data-role="header">
+            <h1>Éxito</h1>
+        </header>
+        <article data-role="content">
+            <p>Registro exitoso</p>
+            <a href="#" data-role="button" data-rel="back">Aceptar</a>
+        </article>
+    </section>
+    <section id="pageError" data-role="dialog" data-theme="c">
+        <header data-role="header">
+            <h1>Error</h1>
+        </header>
+        <article data-role="content">
+            <p>Registro duplicado, elija otro nombre</p>
+            <a href="#" data-role="button" data-rel="back">Aceptar</a>
+        </article>
+    </section>
+    <section id="contra" data-role="dialog" data-theme="c">
+        <header data-role="header">
+            <h1>Cambio de contraseña</h1>
+        </header>
+        <article data-role="content">
+            <span>Ingrese su contraseña actual:</span>
+<input type="password" name="contraoriginal" id="contraoriginal">
+<span>Ingrese su nueva contraseña:</span>
+<input type="password" name="contra2" id="contranueva">
+<span>Repita la nueva contraseña:</span>
+<input type="password" name="contra3" id="contrarepite">
+<input type="button" class="btn btn-info" value="Cambiar contraseña" data-icon="edit" id="change">
+<a data-role="button" data-rel="back" data-icon="back" style="background-color: #c91010">Cancelar</a>
+        </article>
+    </section>
+    <section id="pageContraIgual" data-role="dialog" data-theme="c">
+        <header data-role="header">
+            <h1>Error</h1>
+        </header>
+        <article data-role="content">
+            <p>Escribió la misma contraseña en todos los campos</p>
+            <a href="#" data-role="button" data-rel="back">Aceptar</a>
+        </article>
+    </section>
+    <section id="pageContranoigual" data-role="dialog" data-theme="c">
+        <header data-role="header">
+            <h1>Error</h1>
+        </header>
+        <article data-role="content">
+            <p>Las contraseñas no coinciden</p>
+            <a href="#" data-role="button" data-rel="back">Aceptar</a>
+        </article>
+        </section>
+        <section id="pageContranooriginal" data-role="dialog" data-theme="c">
+        <header data-role="header">
+            <h1>Error</h1>
+        </header>
+        <article data-role="content">
+            <p>La contraseña original no es correcta</p>
+            <a href="#" data-role="button" data-rel="back">Aceptar</a>
+        </article>
+        </section>
+        <section id="cerrarsesion" data-role="dialog" data-theme="c">
+        <header data-role="header">
+            <h1>¿Está seguro?</h1>
+        </header>
+        <article data-role="content">
+            <p>¿Está seguro de que desea cerrar sesión?</p>
+            <a href="#" data-role="button" id="logout" data-icon="lock" style="background-color: #c91010">Cerrar sesión</a>
+            <a href="#" data-role="button" data-rel="back" data-icon="back">Cancelar</a>
+        </article>
+        </section>
+</body>
+</html>
